@@ -1,0 +1,55 @@
+  /* Add more vibrant colors */
+  body {
+    background-color: #fdfdfd; /* Light gray background */
+  }
+
+  .navbar {
+    background: linear-gradient(to right, #3498db, #6ab0de); /* Gradient background for navbar */
+  }
+
+  h2 {
+    color: #e74c3c; /* Red heading */
+    background-color: #ecf0f1; /* Light background for heading */
+  }
+
+  .container {
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    padding: 20px;
+    margin-top: 20px;
+  }
+
+  .btn-primary {
+    background: linear-gradient(to right, #3498db, #2980b9); /* Gradient button */
+    border: none;
+    color: #fff;
+  }
+
+  .btn-danger {
+    background: linear-gradient(to right, #c02299, #c0392b); /* Gradient button */
+    border: none;
+    color: #fff;
+  }
+
+  .btn-success {
+    background: linear-gradient(to right, #c1cc2e, #2bae27); /* Gradient button */
+    border: none;
+    color: #fff;
+  }
+
+  /* Add more features to cart items */
+  .card-body {
+    position: relative;
+  }
+
+  .quantity-input {
+    width: 40px;
+    margin-right: 10px;
+  }
+
+  .buy-btn {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+  }

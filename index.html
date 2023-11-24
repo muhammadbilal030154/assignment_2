@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>BookHub - Your Ultimate Online Library</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #ff5f5fe7; /* Updated background color */
+            margin: 0;
+            overflow-x: hidden;
+            animation: changeBackgroundColor 10s infinite alternate;
+            color: #ffffff; /* Updated text color */
+        }
+
+        .navbar {
+            background-color: #3498db;
+        }
+
+        .navbar-brand {
+            font-size: 1.8em;
+            font-weight: bold;
+            color: #fff;
+        }
+
+        .navbar-toggler-icon {
+            background-color: #fff;
+        }
+
+        .navbar-nav .nav-link {
+            color: #fff;
+            font-weight: 600;
+            transition: color 0.3s;
+        }
+
+        .navbar-nav .nav-link:hover {
+            color: #ffd700;
+        }
+
+        .slideshow-container {
+            max-width: 100%;
+            position: relative;
+            margin: auto;
+            overflow: hidden;
+            border-radius: 10px;
+            background: linear-gradient(45deg, #3498db, #9b59b6); /* Updated gradient color */
+            padding: 20px;
+            text-align: center;
+        }
+
+        .slideshow-container img {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+        }
+
+        .slideshow-text {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            color: #fff;
+            font-size: 2em;
+            font-weight: bold;
+            background-color: rgba(0, 0, 0, 0.7);
+            padding: 20px;
+            border-radius: 10px;
+        }
+
+        .sl_container {
+            height: 60vh;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            text-align: center;
+            transition: background-color 0.5s;
+            animation: scaleInfinite 3s infinite alternate;
+            border-radius: 10px;
+        }
+
+        .sl_container:hover {
+            background-color: #2ecc71;
+        }
+
+        .sl_container img,
+        .slideshow-text {
+            opacity: 0;
+            text-align: center;
+            transform: scale(0.8);
+            animation: fadeIn 1s ease-in-out forwards, scaleIn 0.8s ease-in-out forwards;
+        }
+
+        .sl_container:hover img,
+        .sl_container:hover .slideshow-text {
+            transform: scale(1);
+        }
+
+        .sl_container img {
+            max-width: 100%;
+            height: auto;
+            transition: transform 0.5s;
+            border-radius: 10px;
+        }
+
+        .slideshow-text {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 2em;
+            font-weight: bold;
+            transition: transform 0.5s;
+            border-radius: 10px;
+        }
+
+        .slideshow-text a {
+            color: #fff;
+            text-decoration: none;
+            background-color: #3498db;
+            padding: 10px 20px;
+            border-radius: 5px;
+            display: inline-block;
+            transition: background-color 0.3s;
+        }
+
+        .slideshow-text a:hover {
+            background-color: #2980b9;
+        }
+
+        .hidden-sentence {
+            display: none;
+        }
+
+        @keyframes fadeIn {
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes scaleIn {
+            to {
+                transform: scale(1);
+            }
+        }
+
+        @keyframes scaleInfinite {
+            to {
+                transform: scale(1.1);
+            }
+        }
+
+        .description-container {
+            margin: 20px 0;
+            background-color: #ab6464; /* Updated background color */
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .description-container h2 {
+            color: #2ecc71;
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+
+        .description-container p {
+            color: #fff;
+            font-size: 1.2em;
+            line-height: 1.5;
+        }
+
+        .description-container h3 {
+            color: #87704b;
+            text-align: center;
+            font-size: 1.8em;
+            margin-top: 20px;
+        }
+
+        .website-list {
+            list-style-type: none;
+            padding: 0;
+            margin-top: 10px;
+        }
+
+        .website-list li {
+            margin-bottom: 10px;
+            font-size: 1.2em;
+        }
+
+        .website-list a {
+            color: #3498db;
+            text-decoration: none;
+        }
+
+        .website-list a:hover {
+            text-decoration: underline;
+        }
+
+        .join-websites {
+            margin-top: 30px;
+        }
+
+        /* Explore Button Styles */
+        .explore-btn {
+            display: inline-block;
+            padding: 15px 25px;
+            font-size: 1.2em;
+            text-align: center;
+            text-decoration: none;
+            background-color: #3498db;
+            color: #fff;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+            cursor: pointer;
+            animation: scaleInBtn 1s ease-in-out;
+        }
+
+        .explore-btn:hover {
+            background-color: #2980b9;
+        }
+
+        @keyframes scaleInBtn {
+            to {
+                transform: scale(1.1);
+            }
+        }
+
+    </style>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-dark">
+        <a class="navbar-brand" href="index.html">
+            <span style="color: rgb(131, 135, 117);">Bilal Book Store</span>
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="book.html"><span style="color: #fff;">Books</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="cart.html"><span style="color: #fff;">Cart</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="payment.html"><span style="color: #fff;">Payment</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="contact.html"><span style="color: #fff;">Contact With Us</span></a>
+                </li>
+                <li class="nav-item">
+                    <form class="form-inline my-2 my-lg-0">
+                        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search"
+                            id="searchInput">
+                        <button style="color: #fff; background-color: #3498db;" class="btn btn-outline-success my-2 my-sm-0"
+                            type="button" onclick="searchGoogle()">Search</button>
+                    </form>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="books.html"><span style="color: #fff;">Explore</span></a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <div class="container">
+        <div class="description-container">
+            <!-- Add this code inside the <div class="description-container"> element, after the existing content -->
+<div class="welcome-message">
+    <h2>Welcome to Bilal Book Store</h2>
+    <p>Embark on a literary journey with Bilal Book Store, your haven for discovering the wonders of the written word. Here, we celebrate the magic of storytelling and offer you a curated collection of books that spans genres, captivates minds, and sparks imaginations.</p>
+    <p>Whether you're a seasoned reader or just beginning your reading adventure, our shelves are filled with stories waiting to be explored. From gripping tales of mystery to heartwarming narratives of love and friendship, each book has been carefully chosen to provide you with a rich and diverse reading experience.</p>
+    <p>Feel free to browse our categories, add your favorite books to the cart, and enjoy a seamless online shopping experience. At Bilal Book Store, we're not just selling books; we're sharing stories that inspire, entertain, and transport you to new worlds. Happy reading!</p>
+</div>
+            
+            <!-- Explore Button -->
+            <div class="text-center join-websites">
+                <a class="explore-btn" href="book.html" role="button">Explore Books</a>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.0.8/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <script>
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.slide');
+
+        function showSlide(index) {
+            slides.forEach((slide, i) => {
+                if (i === index) {
+                    slide.style.display = 'block';
+                } else {
+                    slide.style.display = 'none';
+                }
+            });
+        }
+
+        function showNextSlide() {
+            currentSlide = (currentSlide + 1) % slides.length;
+            showSlide(currentSlide);
+        }
+
+        function startSlideshow() {
+            showSlide(currentSlide);
+            setInterval(showNextSlide, 3000);
+        }
+
+        startSlideshow();
+
+        function searchGoogle() {
+            const searchInput = document.getElementById('searchInput').value;
+            const googleSearchURL = `https://www.google.com/search?q=${encodeURIComponent(searchInput)}`;
+            window.location.href = googleSearchURL;
+        }
+    </script>
+</body>
+
+</html>
